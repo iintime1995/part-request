@@ -132,7 +132,20 @@
         <select name="requester" required>
           <option value="" disabled selected>-- Select Requester --</option>
           <option>MR. NIRAWIT PONGPISUT</option>
-          <!-- เพิ่มรายชื่ออื่นตามต้องการ -->
+          <option>MR. PARIYES SAWASKLIN</option>
+          <option>MISS SIRAWI SUNTHONPHIRAWET</option>
+          <option>MR. KAL ISARANONTAKUL</option>
+          <option>MR. DITTARUD AROONRUNGSRI</option>
+          <option>MR. ARNAN CHAROENRAT</option>
+          <option>MR. PUSIT KUMMON</option>
+          <option>MISS PATTRARAT RATTANAKAL</option>
+          <option>MR. WAROON KHOONTHONG</option>
+          <option>MR. SUTIN KAEWSUTTA</option>
+          <option>MR. CHOKECHAI THAIUDOM</option>
+          <option>MRS. PONGSAREE KICHANON</option>
+          <option>MR. CHANUT BUMRUNGPHOL</option>
+          <option>MR. MITREE NIMSUK</option>
+          <option>MR. SUNTRITI WIENGSRI</option>
         </select>
       </label>
 
@@ -170,9 +183,9 @@
       partDiv.className = 'part-group';
       let html = '';
       if (partIndex > 0) {
-        html += `<button type="button" class="remove-button" onclick="this.parentElement.remove()">Remove</button>`;
+        html += <button type="button" class="remove-button" onclick="this.parentElement.remove()">Remove</button>;
       }
-      html += `
+      html += 
         <label>Part Name:
           <input type="text" name="partName${partIndex}" required />
         </label>
@@ -194,14 +207,14 @@
             <input type="text" name="otherReason${partIndex}" />
           </label>
         </div>
-      `;
+      ;
       partDiv.innerHTML = html;
       container.appendChild(partDiv);
       partIndex++;
     }
 
     function toggleOther(select, index) {
-      const otherDiv = document.getElementById(`otherReason${index}`);
+      const otherDiv = document.getElementById(otherReason${index});
       otherDiv.style.display = select.value === 'Other' ? 'block' : 'none';
     }
 
@@ -214,13 +227,13 @@
       const parts = [];
 
       for (let i = 0; i < partIndex; i++) {
-        const reason = formData.get(`reason${i}`);
-        const finalReason = reason === 'Other' ? `Other - ${formData.get(`otherReason${i}`)}` : reason;
+        const reason = formData.get(reason${i});
+        const finalReason = reason === 'Other' ? Other - ${formData.get(otherReason${i})} : reason;
 
         parts.push({
-          partName: formData.get(`partName${i}`),
-          partNumber: formData.get(`partNumber${i}`),
-          qty: formData.get(`qty${i}`),
+          partName: formData.get(partName${i}),
+          partNumber: formData.get(partNumber${i}),
+          qty: formData.get(qty${i}),
           reason: finalReason,
           requester,
           requiredDate
@@ -255,8 +268,6 @@
   </script>
 </body>
 </html>
-
-
 
 
 
