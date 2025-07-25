@@ -9,7 +9,7 @@
     * { box-sizing: border-box; }
     body {
       font-family: 'Roboto', sans-serif;
-      background-color: #f1f3f4;
+      background-color: #e8f0fe;
       margin: 0;
       padding: 0;
     }
@@ -19,11 +19,11 @@
       background: white;
       border-radius: 8px;
       padding: 30px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
     }
     h2 {
       margin-top: 0;
-      color: #202124;
+      color: #1a73e8;
     }
     label {
       display: block;
@@ -43,7 +43,7 @@
       font-size: 14px;
     }
     .part-group {
-      background-color: #f8f9fa;
+      background-color: #f1f3f4;
       padding: 15px;
       margin-top: 20px;
       border: 1px solid #dadce0;
@@ -54,7 +54,7 @@
       position: absolute;
       top: 10px;
       right: 10px;
-      background-color: #e53935;
+      background-color: #d93025;
       color: white;
       border: none;
       padding: 5px 10px;
@@ -72,11 +72,17 @@
       gap: 10px;
     }
     .back-button {
-      background-color: #e0e0e0;
+      background-color: #f8f9fa;
       color: #202124;
+      border: 1px solid #dadce0;
     }
     .submit-button {
       background-color: #34a853;
+      color: white;
+    }
+    .add-button {
+      background-color: #1a73e8;
+      color: white;
     }
     button {
       padding: 10px 16px;
@@ -86,7 +92,7 @@
       border: none;
     }
     button:hover {
-      opacity: 0.9;
+      opacity: 0.95;
     }
     .success-message {
       text-align: center;
@@ -137,7 +143,7 @@
       <div class="button-group">
         <button type="button" class="back-button" onclick="location.href='index.html'">Back</button>
         <div class="button-right">
-          <button type="button" onclick="addPart()">+ Add more part</button>
+          <button type="button" class="add-button" onclick="addPart()">+ Add more part</button>
           <button type="submit" class="submit-button">Submit Order</button>
         </div>
       </div>
