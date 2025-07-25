@@ -246,9 +246,7 @@
         const response = await fetch(webhookUrl, {
           method: 'POST',
           body: JSON.stringify({ parts }),
-          headers: {
-            'Content-Type': 'application/json'
-          }
+          
         });
 
         const result = await response.json();
