@@ -122,6 +122,7 @@
       <button type="button" onclick="addPart()">+ Add more part</button>
       <br />
       <button type="submit">Submit Order</button>
+      <button type="button" onclick="location.href='index.html'">Back to Home</button>
     </form>
   </div>
 
@@ -140,8 +141,11 @@
       const container = document.getElementById('partContainer');
       const partDiv = document.createElement('div');
       partDiv.className = 'part-group';
-      partDiv.innerHTML = `
-        <button type="button" class="remove-button" onclick="this.parentElement.remove()">Remove</button>
+      let html = '';
+      if (partIndex > 0) {
+        html += `<button type="button" class="remove-button" onclick="this.parentElement.remove()">Remove</button>`;
+      }
+      html += `
         <label>Part Name:
           <input type="text" name="partName${partIndex}" required />
         </label>
@@ -164,6 +168,7 @@
           </label>
         </div>
       `;
+      partDiv.innerHTML = html;
       container.appendChild(partDiv);
       partIndex++;
     }
@@ -183,6 +188,7 @@
   </script>
 </body>
 </html>
+
 
 
 
