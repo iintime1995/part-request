@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Order Part</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #f1f3f4;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 700px;
+      margin: 40px auto;
+      background: white;
+      border-radius: 8px;
+      padding: 30px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    h2 {
+      margin-top: 0;
+      color: #202124;
+    }
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: 500;
+      color: #3c4043;
+    }
+    input[type="text"],
+    input[type="number"],
+    select {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #dadce0;
+      border-radius: 4px;
+      font-size: 14px;
+    }
+    .part-group {
+      background-color: #f8f9fa;
+      padding: 15px;
+      margin-top: 20px;
+      border: 1px solid #dadce0;
+      border-radius: 6px;
+    }
+    button {
+      background-color: #1a73e8;
+      color: white;
+      border: none;
+      padding: 10px 16px;
+      font-size: 14px;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+    button:hover {
+      background-color: #1558b0;
+    }
+    .success-message {
+      text-align: center;
+      padding: 50px;
+    }
+    .success-icon {
+      font-size: 80px;
+      color: #34a853;
+    }
+    .success-title {
+      font-size: 28px;
+      color: #202124;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container" id="formContainer">
+    <h2>Part Order Form</h2>
+    <form id="requestForm">
+      <label>Requester:
+        <select name="requester" required>
+          <option value="" disabled selected>-- Select Requester --</option>
+          <option>MR. NIRAWIT PONGPISUT</option>
+          <option>MR. PARIYES SAWASKLIN</option>
+          <option>MISS SIRAWI SUNTHONPHIRAWET</option>
+          <option>MR. KAL ISARANONTAKUL</option>
+          <option>MR. DITTARUD AROONRUNGSRI</option>
+          <option>MR. ARNAN CHAROENRAT</option>
+          <option>MR. PUSIT KUMMON</option>
+          <option>MISS PATTRARAT RATTANAKAL</option>
+          <option>MR. WAROON KHOONTHONG</option>
+          <option>MR. SUTIN KAEWSUTTA</option>
+          <option>MR. CHOKECHAI THAIUDOM</option>
+          <option>MRS. PONGSAREE KICHANON</option>
+          <option>MR. CHANUT BUMRUNGPHOL</option>
+          <option>MR. MITREE NIMSUK</option>
+          <option>MR. SUNTRITI WIENGSRI</option>
+        </select>
+      </label>
+      <div id="partContainer"></div>
+      <button type="button" onclick="addPart()">+ Add more part</button>
+      <br />
+      <button type="submit">Submit Order</button>
+    </form>
+  </div>
+
+  <div class="container" id="successContainer" style="display: none; text-align: center;">
+    <div class="success-message">
+      <div class="success-icon">✅</div>
+      <div class="success-title">Success!</div>
+      <p>Your order has been submitted successfully.</p>
+    </div>
+  </div>
+
+  <script>
+    let partIndex = 0;
+
+    function addPart() {
+      const container = document.getElementById('partContainer');
+      const partDiv = document.createElement('div');
+      partDiv.className = 'part-group';
+      partDiv.innerHTML = `
+        <label>Part Name:
+          <input type="text" name="partName${partIndex}" required />
+        </label>
+        <label>Part Number:
+          <input type="text" name="partNumber${partIndex}" required />
+        </label>
+        <label>Quantity:
+          <input type="number" name="qty${partIndex}" min="1" required />
+        </label>
+        <label>Reason:
+          <select name="reason${partIndex}" onchange="toggleOther(this, ${partIndex})">
+            <option value="Due to part low stock">Due to part low stock</option>
+            <option value="Due to out of stock">Due to out of stock</option>
+            <option value="Other">Other</option>
+          </select>
+        </label>
+        <div id="otherReason${partIndex}" style="display: none">
+          <label>Please specify other reason:
+            <input type="text" name="otherReason${partIndex}" />
+          </label>
+        </div>
+      `;
+      container.appendChild(partDiv);
+      partIndex++;
+    }
+
+    function toggleOther(select, index) {
+      const otherDiv = document.getElementById(`otherReason${index}`);
+      otherDiv.style.display = select.value === 'Other' ? 'block' : 'none';
+    }
+
+    document.getElementById('requestForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      document.getElementById('formContainer').style.display = 'none';
+      document.getElementById('successContainer').style.display = 'block';
+    });
+
+    addPart();
+  </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
