@@ -239,20 +239,21 @@
         });
       }
 
-        // --- เริ่มต้นการแก้ไขในส่วนนี้ ---
+        // **Webhook URL ของ Google Apps Script ของคุณ**
         const webhookUrl = 'https://script.google.com/macros/s/AKfycbwIGLD0Ho9rDCcWpMWW5ToVSgYKUIp6_8IJugaAJCycEOn-5CoSlpVTJzmcRgGM4HAIeg/exec';
         
         // แปลง array of parts ให้เป็น JSON string
+        // และใช้ encodeURIComponent เพื่อให้แน่ใจว่าข้อมูลถูกเข้ารหัสอย่างถูกต้องใน URL
         const partsJsonString = JSON.stringify(parts);
         
-        // สร้าง URL พร้อม query parameter
+        // สร้าง URL พร้อม query parameter สำหรับ GET request
         const urlWithParams = `${webhookUrl}?parts=${encodeURIComponent(partsJsonString)}`;
 
       try {
-        // เปลี่ยน method เป็น 'GET' และใช้ urlWithParams
+        // ส่งข้อมูลด้วย GET request
         const response = await fetch(urlWithParams, {
-          method: 'GET', // เปลี่ยนจาก 'POST' เป็น 'GET'
-          // ไม่ต้องใส่ body และ headers: 'Content-Type': 'application/json' แล้ว
+          method: 'GET', // เปลี่ยนเป็น GET
+          // ไม่จำเป็นต้องมี body หรือ headers (เช่น Content-Type) สำหรับ GET request แบบนี้
         });
 
         const result = await response.json();
@@ -268,7 +269,7 @@
       }
     });
 
-    addPart();
+    addPart(); // เรียกใช้ครั้งแรกเพื่อให้มีฟอร์มเริ่มต้น 1 ชุด
   </script>
 </body>
 </html>
