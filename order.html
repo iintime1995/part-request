@@ -218,16 +218,57 @@
       otherDiv.style.display = select.value === 'Other' ? 'block' : 'none';
     }
 
-    document.getElementById('requestForm').addEventListener('submit', function (e) {
+    document.getElementById('requestForm').addEventListener('submit', async function (e) {
       e.preventDefault();
-      document.getElementById('formContainer').style.display = 'none';
-      document.getElementById('successContainer').style.display = 'block';
+
+      const formData = new FormData(this);
+      const requester = formData.get('requester');
+      const requiredDate = formData.get('requiredDate');
+      const parts = [];
+
+      for (let i = 0; i < partIndex; i++) {
+        const reason = formData.get(`reason${i}`);
+        const finalReason = reason === 'Other' ? `Other - ${formData.get(`otherReason${i}`)}` : reason;
+
+        parts.push({
+          partName: formData.get(`partName${i}`),
+          partNumber: formData.get(`partNumber${i}`),
+          qty: formData.get(`qty${i}`),
+          reason: finalReason,
+          requester,
+          requiredDate
+        });
+      }
+
+      const webhookUrl = 'https://script.google.com/macros/s/AKfycbwPDmAaA4QAiKx6dvFE5Eq4VMEPhgyYlHACp1TCj9qzqxpCm68ljh-epY9qDRBQ2IUpwg/exec';
+
+      try {
+        const response = await fetch(webhookUrl, {
+          method: 'POST',
+          body: JSON.stringify({ parts }),
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        });
+
+        const result = await response.json();
+
+        if (result.success) {
+          document.getElementById('formContainer').style.display = 'none';
+          document.getElementById('successContainer').style.display = 'block';
+        } else {
+          alert('An error occurred: ' + result.message);
+        }
+      } catch (error) {
+        alert('Network error: ' + error.message);
+      }
     });
 
     addPart();
   </script>
 </body>
 </html>
+
 
 
 
