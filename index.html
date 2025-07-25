@@ -101,7 +101,7 @@
         </select>
       </label>
       <div id="partContainer"></div>
-      <button type="button" onclick="addPart()">+ Add Part</button>
+      <button type="button" onclick="addPart()">+ Add more part</button>
       <br />
       <button type="submit">Submit Order</button>
     </form>
@@ -154,11 +154,8 @@
       otherDiv.style.display = select.value === 'Other' ? 'block' : 'none';
     }
 
-    // Submit: แค่โชว์ success ยังไม่ fetch
     document.getElementById('requestForm').addEventListener('submit', function (e) {
       e.preventDefault();
-
-      // จำลองว่า submit แล้วเรียบร้อย
       document.getElementById('formContainer').style.display = 'none';
       document.getElementById('successContainer').style.display = 'block';
     });
@@ -167,6 +164,7 @@
   </script>
 </body>
 </html>
+
 
 
 
