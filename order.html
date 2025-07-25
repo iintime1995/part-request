@@ -1,278 +1,274 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Order Part</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-  <style>
-    * { box-sizing: border-box; }
-    body {
-      font-family: 'Roboto', sans-serif;
-      background-color: #e8f0fe;
-      margin: 0;
-      padding: 0;
-    }
-    .container {
-      max-width: 700px;
-      margin: 40px auto;
-      background: white;
-      border-radius: 8px;
-      padding: 30px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-    }
-    h2 {
-      margin-top: 0;
-      color: #1a73e8;
-    }
-    label {
-      display: block;
-      margin-top: 15px;
-      font-weight: 500;
-      color: #3c4043;
-    }
-    input[type="text"],
-    input[type="number"],
-    input[type="date"],
-    select {
-      width: 100%;
-      padding: 10px;
-      margin-top: 5px;
-      border: 1px solid #dadce0;
-      border-radius: 4px;
-      font-size: 14px;
-    }
-    .part-group {
-      background-color: #f1f3f4;
-      padding: 15px;
-      margin-top: 20px;
-      border: 1px solid #dadce0;
-      border-radius: 6px;
-      position: relative;
-    }
-    .remove-button {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      background-color: #d93025;
-      color: white;
-      border: none;
-      padding: 5px 10px;
-      border-radius: 4px;
-      cursor: pointer;
-    }
-    .button-group {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      align-items: center;
-      margin-top: 30px;
-      gap: 10px;
-    }
-    .button-right {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-    .back-button,
-    .submit-button,
-    .add-button {
-      padding: 10px 16px;
-      font-size: 14px;
-      border-radius: 4px;
-      cursor: pointer;
-      border: none;
-      flex: 1 1 auto;
-    }
-    .back-button {
-      background-color: #f8f9fa;
-      color: #202124;
-      border: 1px solid #dadce0;
-    }
-    .submit-button {
-      background-color: #34a853;
-      color: white;
-    }
-    .add-button {
-      background-color: #1a73e8;
-      color: white;
-    }
-    button:hover {
-      opacity: 0.95;
-    }
-    .success-message {
-      text-align: center;
-      padding: 50px;
-    }
-    .success-icon {
-      font-size: 80px;
-      color: #34a853;
-    }
-    .success-title {
-      font-size: 28px;
-      color: #202124;
-      margin-top: 20px;
-    }
-    .home-button {
-      margin-top: 30px;
-      background-color: #1a73e8;
-      color: white;
-      padding: 10px 20px;
-      border-radius: 4px;
-      border: none;
-      cursor: pointer;
-    }
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Order Part</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #e8f0fe;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 700px;
+      margin: 40px auto;
+      background: white;
+      border-radius: 8px;
+      padding: 30px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+    h2 {
+      margin-top: 0;
+      color: #1a73e8;
+    }
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: 500;
+      color: #3c4043;
+    }
+    input[type="text"],
+    input[type="number"],
+    input[type="date"],
+    select {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #dadce0;
+      border-radius: 4px;
+      font-size: 14px;
+    }
+    .part-group {
+      background-color: #f1f3f4;
+      padding: 15px;
+      margin-top: 20px;
+      border: 1px solid #dadce0;
+      border-radius: 6px;
+      position: relative;
+    }
+    .remove-button {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background-color: #d93025;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .button-group {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 30px;
+      gap: 10px;
+    }
+    .button-right {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .back-button,
+    .submit-button,
+    .add-button {
+      padding: 10px 16px;
+      font-size: 14px;
+      border-radius: 4px;
+      cursor: pointer;
+      border: none;
+      flex: 1 1 auto;
+    }
+    .back-button {
+      background-color: #f8f9fa;
+      color: #202124;
+      border: 1px solid #dadce0;
+    }
+    .submit-button {
+      background-color: #34a853;
+      color: white;
+    }
+    .add-button {
+      background-color: #1a73e8;
+      color: white;
+    }
+    button:hover {
+      opacity: 0.95;
+    }
+    .success-message {
+      text-align: center;
+      padding: 50px;
+    }
+    .success-icon {
+      font-size: 80px;
+      color: #34a853;
+    }
+    .success-title {
+      font-size: 28px;
+      color: #202124;
+      margin-top: 20px;
+    }
+    .home-button {
+      margin-top: 30px;
+      background-color: #1a73e8;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 4px;
+      border: none;
+      cursor: pointer;
+    }
+  </style>
 </head>
 <body>
-  <div class="container" id="formContainer">
-    <h2>Part Order Form</h2>
-    <form id="requestForm">
-      <label>Requester:
-        <select name="requester" required>
-          <option value="" disabled selected>-- Select Requester --</option>
-          <option>MR. NIRAWIT PONGPISUT</option>
-          <option>MR. PARIYES SAWASKLIN</option>
-          <option>MISS SIRAWI SUNTHONPHIRAWET</option>
-          <option>MR. KAL ISARANONTAKUL</option>
-          <option>MR. DITTARUD AROONRUNGSRI</option>
-          <option>MR. ARNAN CHAROENRAT</option>
-          <option>MR. PUSIT KUMMON</option>
-          <option>MISS PATTRARAT RATTANAKAL</option>
-          <option>MR. WAROON KHOONTHONG</option>
-          <option>MR. SUTIN KAEWSUTTA</option>
-          <option>MR. CHOKECHAI THAIUDOM</option>
-          <option>MRS. PONGSAREE KICHANON</option>
-          <option>MR. CHANUT BUMRUNGPHOL</option>
-          <option>MR. MITREE NIMSUK</option>
-          <option>MR. SUNTRITI WIENGSRI</option>
-        </select>
-      </label>
+  <div class="container" id="formContainer">
+    <h2>Part Order Form</h2>
+    <form id="requestForm">
+      <label>Requester:
+        <select name="requester" required>
+          <option value="" disabled selected>-- Select Requester --</option>
+          <option>MR. NIRAWIT PONGPISUT</option>
+          <option>MR. PARIYES SAWASKLIN</option>
+          <option>MISS SIRAWI SUNTHONPHIRAWET</option>
+          <option>MR. KAL ISARANONTAKUL</option>
+          <option>MR. DITTARUD AROONRUNGSRI</option>
+          <option>MR. ARNAN CHAROENRAT</option>
+          <option>MR. PUSIT KUMMON</option>
+          <option>MISS PATTRARAT RATTANAKAL</option>
+          <option>MR. WAROON KHOONTHONG</option>
+          <option>MR. SUTIN KAEWSUTTA</option>
+          <option>MR. CHOKECHAI THAIUDOM</option>
+          <option>MRS. PONGSAREE KICHANON</option>
+          <option>MR. CHANUT BUMRUNGPHOL</option>
+          <option>MR. MITREE NIMSUK</option>
+          <option>MR. SUNTRITI WIENGSRI</option>
+        </select>
+      </label>
 
-      <label>Required Date:
-        <input type="date" name="requiredDate" required />
-      </label>
+      <label>Required Date:
+        <input type="date" name="requiredDate" required />
+      </label>
 
-      <div id="partContainer"></div>
+      <div id="partContainer"></div>
 
-      <div class="button-group">
-        <button type="button" class="back-button" onclick="location.href='index.html'">Back</button>
-        <div class="button-right">
-          <button type="button" class="add-button" onclick="addPart()">+ Add more part</button>
-          <button type="submit" class="submit-button">Submit Order</button>
-        </div>
-      </div>
-    </form>
-  </div>
+      <div class="button-group">
+        <button type="button" class="back-button" onclick="location.href='index.html'">Back</button>
+        <div class="button-right">
+          <button type="button" class="add-button" onclick="addPart()">+ Add more part</button>
+          <button type="submit" class="submit-button">Submit Order</button>
+        </div>
+      </div>
+    </form>
+  </div>
 
-  <div class="container" id="successContainer" style="display: none; text-align: center;">
-    <div class="success-message">
-      <div class="success-icon">✅</div>
-      <div class="success-title">Success!</div>
-      <p>Your order has been submitted successfully.</p>
-      <button class="home-button" onclick="location.href='index.html'">Home</button>
-    </div>
-  </div>
+  <div class="container" id="successContainer" style="display: none; text-align: center;">
+    <div class="success-message">
+      <div class="success-icon">✅</div>
+      <div class="success-title">Success!</div>
+      <p>Your order has been submitted successfully.</p>
+      <button class="home-button" onclick="location.href='index.html'">Home</button>
+    </div>
+  </div>
 
-  <script>
-    let partIndex = 0;
+  <script>
+    let partIndex = 0;
 
-    function addPart() {
-      const container = document.getElementById('partContainer');
-      const partDiv = document.createElement('div');
-      partDiv.className = 'part-group';
-      let html = '';
-      if (partIndex > 0) {
-        html += `<button type="button" class="remove-button" onclick="this.parentElement.remove()">Remove</button>`;
-      }
-      html += `
-        <label>Part Name:
-          <input type="text" name="partName${partIndex}" required />
-        </label>
-        <label>Part Number:
-          <input type="text" name="partNumber${partIndex}" required />
-        </label>
-        <label>Quantity:
-          <input type="number" name="qty${partIndex}" min="1" required />
-        </label>
-        <label>Reason:
-          <select name="reason${partIndex}" onchange="toggleOther(this, ${partIndex})">
-            <option value="Due to part low stock">Due to part low stock</option>
-            <option value="Due to out of stock">Due to out of stock</option>
-            <option value="Other">Other</option>
-          </select>
-        </label>
-        <div id="otherReason${partIndex}" style="display: none">
-          <label>Please specify other reason:
-            <input type="text" name="otherReason${partIndex}" />
-          </label>
-        </div>
-      `;
-      partDiv.innerHTML = html;
-      container.appendChild(partDiv);
-      partIndex++;
-    }
+    function addPart() {
+      const container = document.getElementById('partContainer');
+      const partDiv = document.createElement('div');
+      partDiv.className = 'part-group';
+      let html = '';
+      if (partIndex > 0) {
+        html += `<button type="button" class="remove-button" onclick="this.parentElement.remove()">Remove</button>`;
+      }
+      html += `
+        <label>Part Name:
+          <input type="text" name="partName${partIndex}" required />
+        </label>
+        <label>Part Number:
+          <input type="text" name="partNumber${partIndex}" required />
+        </label>
+        <label>Quantity:
+          <input type="number" name="qty${partIndex}" min="1" required />
+        </label>
+        <label>Reason:
+          <select name="reason${partIndex}" onchange="toggleOther(this, ${partIndex})">
+            <option value="Due to part low stock">Due to part low stock</option>
+            <option value="Due to out of stock">Due to out of stock</option>
+            <option value="Other">Other</option>
+          </select>
+        </label>
+        <div id="otherReason${partIndex}" style="display: none">
+          <label>Please specify other reason:
+            <input type="text" name="otherReason${partIndex}" />
+          </label>
+        </div>
+      `;
+      partDiv.innerHTML = html;
+      container.appendChild(partDiv);
+      partIndex++;
+    }
 
-    function toggleOther(select, index) {
-      const otherDiv = document.getElementById(`otherReason${index}`);
-      otherDiv.style.display = select.value === 'Other' ? 'block' : 'none';
-    }
+    function toggleOther(select, index) {
+      const otherDiv = document.getElementById(`otherReason${index}`);
+      otherDiv.style.display = select.value === 'Other' ? 'block' : 'none';
+    }
 
-    document.getElementById('requestForm').addEventListener('submit', async function (e) {
-      e.preventDefault();
+    document.getElementById('requestForm').addEventListener('submit', async function (e) {
+      e.preventDefault();
 
-      const formData = new FormData(this);
-      const requester = formData.get('requester');
-      const requiredDate = formData.get('requiredDate');
-      const parts = [];
+      const formData = new FormData(this);
+      const requester = formData.get('requester');
+      const requiredDate = formData.get('requiredDate');
+      const parts = [];
 
-      for (let i = 0; i < partIndex; i++) {
-        const reason = formData.get(`reason${i}`);
-        const finalReason = reason === 'Other' ? `Other - ${formData.get(`otherReason${i}`)}` : reason;
+      for (let i = 0; i < partIndex; i++) {
+        const reason = formData.get(`reason${i}`);
+        const finalReason = reason === 'Other' ? `Other - ${formData.get(`otherReason${i}`)}` : reason;
 
-        parts.push({
-          partName: formData.get(`partName${i}`),
-          partNumber: formData.get(`partNumber${i}`),
-          qty: formData.get(`qty${i}`),
-          requester,
-          requiredDate
-        });
-      }
+        parts.push({
+          partName: formData.get(`partName${i}`),
+          partNumber: formData.get(`partNumber${i}`),
+          qty: formData.get(`qty${i}`),
+          reason: finalReason,
+          requester,
+          requiredDate
+        });
+      }
 
-        // **Webhook URL ของ Google Apps Script ของคุณ**
-        const webhookUrl = 'https://script.google.com/macros/s/AKfycbwIGLD0Ho9rDCcWpMWW5ToVSgYKUIp6_8IJugaAJCycEOn-5CoSlpVTJzmcRgGM4HAIeg/exec';
-        
-        // แปลง array of parts ให้เป็น JSON string
-        // และใช้ encodeURIComponent เพื่อให้แน่ใจว่าข้อมูลถูกเข้ารหัสอย่างถูกต้องใน URL
-        const partsJsonString = JSON.stringify(parts);
-        
-        // สร้าง URL พร้อม query parameter สำหรับ GET request
-        const urlWithParams = `${webhookUrl}?parts=${encodeURIComponent(partsJsonString)}`;
+      const webhookUrl = 'https://script.google.com/macros/s/AKfycbwIGLD0Ho9rDCcWpMWW5ToVSgYKUIp6_8IJugaAJCycEOn-5CoSlpVTJzmcRgGM4HAIeg/exec';
 
-      try {
-        // ส่งข้อมูลด้วย GET request
-        const response = await fetch(urlWithParams, {
-          method: 'GET', // เปลี่ยนเป็น GET
-          // ไม่จำเป็นต้องมี body หรือ headers (เช่น Content-Type) สำหรับ GET request แบบนี้
-        });
+      try {
+        const response = await fetch(webhookUrl, {
+          method: 'POST',
+          body: JSON.stringify({ parts }),
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        });
 
-        const result = await response.json();
+        const result = await response.json();
 
-        if (result.success) {
-          document.getElementById('formContainer').style.display = 'none';
-          document.getElementById('successContainer').style.display = 'block';
-        } else {
-          alert('An error occurred: ' + result.message);
-        }
-      } catch (error) {
-        alert('Network error: ' + error.message);
-      }
-    });
+        if (result.success) {
+          document.getElementById('formContainer').style.display = 'none';
+          document.getElementById('successContainer').style.display = 'block';
+        } else {
+          alert('An error occurred: ' + result.message);
+        }
+      } catch (error) {
+        alert('Network error: ' + error.message);
+      }
+    });
 
-    addPart(); // เรียกใช้ครั้งแรกเพื่อให้มีฟอร์มเริ่มต้น 1 ชุด
-  </script>
+    addPart();
+  </script>
 </body>
 </html>
+
 
 
 
