@@ -33,6 +33,7 @@
     }
     input[type="text"],
     input[type="number"],
+    input[type="date"],
     select {
       width: 100%;
       padding: 10px;
@@ -47,6 +48,18 @@
       margin-top: 20px;
       border: 1px solid #dadce0;
       border-radius: 6px;
+      position: relative;
+    }
+    .remove-button {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background-color: #e53935;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      border-radius: 4px;
+      cursor: pointer;
     }
     button {
       background-color: #1a73e8;
@@ -100,6 +113,11 @@
           <option>MR. SUNTRITI WIENGSRI</option>
         </select>
       </label>
+
+      <label>Required Date:
+        <input type="date" name="requiredDate" required />
+      </label>
+
       <div id="partContainer"></div>
       <button type="button" onclick="addPart()">+ Add more part</button>
       <br />
@@ -123,6 +141,7 @@
       const partDiv = document.createElement('div');
       partDiv.className = 'part-group';
       partDiv.innerHTML = `
+        <button type="button" class="remove-button" onclick="this.parentElement.remove()">Remove</button>
         <label>Part Name:
           <input type="text" name="partName${partIndex}" required />
         </label>
@@ -164,6 +183,7 @@
   </script>
 </body>
 </html>
+
 
 
 
