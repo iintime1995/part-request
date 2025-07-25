@@ -240,6 +240,7 @@
       }
 
         // **Webhook URL ของ Google Apps Script ของคุณ**
+        // ตรวจสอบให้แน่ใจว่าเป็น URL ที่ Deploy แล้ว
         const webhookUrl = 'https://script.google.com/macros/s/AKfycbwIGLD0Ho9rDCcWpMWW5ToVSgYKUIp6_8IJugaAJCycEOn-5CoSlpVTJzmcRgGM4HAIeg/exec';
         
         // แปลง array of parts ให้เป็น JSON string
@@ -252,7 +253,7 @@
       try {
         // ส่งข้อมูลด้วย GET request
         const response = await fetch(urlWithParams, {
-          method: 'GET', // เปลี่ยนเป็น GET
+          method: 'GET', // **สิ่งสำคัญที่สุด: ต้องเป็น GET**
           // ไม่จำเป็นต้องมี body หรือ headers (เช่น Content-Type) สำหรับ GET request แบบนี้
         });
 
