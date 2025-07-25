@@ -61,18 +61,32 @@
       border-radius: 4px;
       cursor: pointer;
     }
+    .button-group {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 30px;
+    }
+    .button-right {
+      display: flex;
+      gap: 10px;
+    }
+    .back-button {
+      background-color: #e0e0e0;
+      color: #202124;
+    }
+    .submit-button {
+      background-color: #34a853;
+    }
     button {
-      background-color: #1a73e8;
-      color: white;
-      border: none;
       padding: 10px 16px;
       font-size: 14px;
       border-radius: 4px;
       cursor: pointer;
-      margin-top: 20px;
+      border: none;
     }
     button:hover {
-      background-color: #1558b0;
+      opacity: 0.9;
     }
     .success-message {
       text-align: center;
@@ -119,10 +133,14 @@
       </label>
 
       <div id="partContainer"></div>
-      <button type="button" onclick="addPart()">+ Add more part</button>
-      <br />
-      <button type="submit">Submit Order</button>
-      <button type="button" onclick="location.href='index.html'">Back to Home</button>
+
+      <div class="button-group">
+        <button type="button" class="back-button" onclick="location.href='index.html'">Back</button>
+        <div class="button-right">
+          <button type="button" onclick="addPart()">+ Add more part</button>
+          <button type="submit" class="submit-button">Submit Order</button>
+        </div>
+      </div>
     </form>
   </div>
 
